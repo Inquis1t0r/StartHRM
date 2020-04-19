@@ -17,13 +17,13 @@
 	<artifactId>StartHRM</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>StartHRM</name>
-	<description>Demo project for Spring Boot</description>
+	<description>WIP</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<start-class>pl.belluu.client</start-class>
+		<start-class>pl.belluu.server.Server</start-class>
 	</properties>
 
 	<dependencies>
@@ -33,15 +33,11 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -53,6 +49,7 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
 	</dependencies>
 
 	<build>
