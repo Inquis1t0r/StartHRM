@@ -1,4 +1,4 @@
-package pl.belluu.server.EmployeeContractTerms;
+package pl.belluu.server.employee;
 
 import java.util.Date;
 
@@ -41,5 +41,4 @@ public class EmployeeContractTerms {
     @OneToOne
     @MapsId
     private Employee employee;
-
 }

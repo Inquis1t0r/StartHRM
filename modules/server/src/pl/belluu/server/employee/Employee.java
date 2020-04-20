@@ -7,9 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Column;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -28,6 +25,7 @@ public class Employee {
     private String firstName;
 
     @Column(name = "EMI_SecondName")
+    private String secondName;
 
     @Column(name = "EMI_LastName")
     private String lastName;
@@ -49,5 +47,4 @@ public class Employee {
 
     @Column(name = "EMI_Archival", columnDefinition = "boolean default false")
     private Boolean archival;
-
 }
