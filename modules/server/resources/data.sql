@@ -1,5 +1,0 @@
---CREATE schema hrm;
---
---INSERT INTO EmpId (emi_firstname, emi_secondname, emi_lastname, emi_age,emi_sex,emi_pesel,emi_ppn) VALUES
---  ('Anna', 'Katarzyna', 'Nowak', '20', '0', '00210121667', 'AWD523954',),
---  ('Jan', '', 'Kowalski', '25','1', '90021000212', 'AWF553553');

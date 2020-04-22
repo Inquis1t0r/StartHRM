@@ -7,11 +7,6 @@ import org.hibernate.engine.jdbc.env.spi.JdbcEnvironment;
 public class CustomPhysicalNamingStrategy extends PhysicalNamingStrategyStandardImpl {
 
     @Override
-    public Identifier toPhysicalColumnName(Identifier name, JdbcEnvironment jdbcEnvironment){
-        return jdbcEnvironment.getIdentifierHelper().toIdentifier(name.getText().replace("_", ""));
-    }
-
-    @Override
     public Identifier toPhysicalTableName(Identifier name, JdbcEnvironment jdbcEnvironment){
         return jdbcEnvironment.getIdentifierHelper().toIdentifier(name.getText().replace("_", ""));
     }

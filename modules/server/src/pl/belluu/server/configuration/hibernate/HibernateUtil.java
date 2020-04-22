@@ -8,13 +8,13 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 public class HibernateUtil {
     private static final SessionFactory sessionFactory = buildSessionFactory();
 
-    static void close() {
+    public static void close() {
         if (sessionFactory != null) {
             sessionFactory.close();
         }
     }
 
-    static SessionFactory getSessionFactory() {
+    public static SessionFactory getSessionFactory() {
         return sessionFactory;
     }
 

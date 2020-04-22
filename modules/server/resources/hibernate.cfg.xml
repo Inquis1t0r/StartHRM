@@ -15,5 +15,10 @@
         <property name="hbm2ddl.auto">create-drop</property>
         <property name="hibernate.physical_naming_strategy">pl.belluu.server.configuration.hibernate.CustomPhysicalNamingStrategy</property>
 
+        <mapping class="pl.belluu.server.employee.Employee"/>
+        <mapping class="pl.belluu.server.employee.EmployeeAddress"/>
+        <mapping class="pl.belluu.server.employee.EmployeeContact"/>
+        <mapping class="pl.belluu.server.employee.EmployeeContractTerms"/>
+
     </session-factory>
 </hibernate-configuration>
