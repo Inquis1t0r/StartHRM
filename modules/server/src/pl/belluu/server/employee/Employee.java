@@ -12,19 +12,39 @@ import javax.persistence.GenerationType;
 
 @Entity
 @Data
-@Table(name= "Employees")
+@Table(name= "EmpId")
 @ComponentScan
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "EMI_Id")
     private int id;
-    @Column(name = "first_name")
+
+    @Column(name = "EMI_FirstName")
     private String firstName;
-    @Column(name = "last_name")
+
+    @Column(name = "EMI_SecondName")
+    private String secondName;
+
+    @Column(name = "EMI_LastName")
     private String lastName;
-    @Column(name = "age")
-    private int age;
-    @Column(name = "PESEL")
+
+    @Column(name = "EMI_Age")
+    private byte age;
+
+    @Column(name = "EMI_Sex")
+    private byte sex;
+
+    @Column(name = "EMI_Pesel")
     private String PESEL;
+
+    @Column(name = "EMI_Ppn")
+    private String PPN;
+
+    @Column(name = "EMI_Active", columnDefinition = "boolean default false")
+    private Boolean active;
+
+    @Column(name = "EMI_Archival", columnDefinition = "boolean default false")
+    private Boolean archival;
 }
