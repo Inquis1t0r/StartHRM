@@ -15,10 +15,18 @@
 
     <properties>
         <src.dir>src</src.dir>
+        <test.dir>test</test.dir>
+        <resources.dir>resources</resources.dir>
+        <testresources.dir>testResources</testresources.dir>
+
+        <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <build>
         <sourceDirectory>${src.dir}</sourceDirectory>
+        <testSourceDirectory>${test.dir}</testSourceDirectory>
     </build>
 
     <dependencies>

@@ -1,14 +1,35 @@
 package pl.belluu.server.validation;
 
+
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 import org.junit.jupiter.api.Test;
-import static org.assertj.core.api.Assertions.*;
 
 public class PeselValidatorTest {
-    String peselNumber = "95021000212";
+
 
     @Test
-    public void shouldHave11Digs(){
-        PeselValidator peselValidator = new PeselValidator(peselNumber);
-        assertThat(peselValidator.peselHave11Digitals(peselNumber));
+    public void shouldHave11Digits(){
+        PeselValidator peselValidator = new PeselValidator("95021000212");
+        assertTrue(peselValidator.peselHave11Digitals());
+    }
+
+    @Test
+    public void shouldHaveCorrectSumControl(){
+        PeselValidator peselValidator = new PeselValidator("95021000212");
+        assertTrue(peselValidator.peselHaveValidSumControl());
+    }
+
+    @Test
+    public void shouldThrowBecauseOfInvalidNumberOfDigits(){
+        PeselValidator peselValidator = new PeselValidator("950210002121");
+        assertThrows(IllegalArgumentException.class, peselValidator::peselHave11Digitals);
+    }
+
+    @Test
+    public void shouldThrowBecauseOfInvalidSumOfControl(){
+        PeselValidator peselValidator = new PeselValidator("95021000211");
+        assertThrows(IllegalArgumentException.class, peselValidator::peselHaveValidSumControl);
     }
 }
