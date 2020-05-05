@@ -2,7 +2,7 @@ package pl.belluu.server.validation;
 
 public class PeselValidator {
 
-    private byte PESEL[] = new byte[11];
+    private byte[] PESEL = new byte[11];
     private final String peselNumber;
 
     public PeselValidator(String peselNumber) throws IllegalArgumentException {
@@ -44,5 +44,15 @@ public class PeselValidator {
             throw new IllegalArgumentException("The PESEL number should have 11 digits");
         }
         return true;
+    }
+
+    public boolean peselBelongsToMan() {
+
+        PESEL[9] = Byte.parseByte(peselNumber.substring(9, 10));
+
+        if (PESEL[9] % 2 == 1) {
+            return true;
+        }
+        return false;
     }
 }
