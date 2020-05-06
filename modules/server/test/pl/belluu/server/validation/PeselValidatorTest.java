@@ -9,7 +9,7 @@ public class PeselValidatorTest {
     @Test
     void shouldHave11Digits() {
         PeselValidator peselValidator = new PeselValidator("73071141895");
-        assertTrue(peselValidator.peselHave11Digitals());
+        assertTrue(peselValidator.isPeselHave11Digitals());
     }
 
     @Test
@@ -21,7 +21,7 @@ public class PeselValidatorTest {
     @Test
     void shouldThrowBecauseOfInvalidNumberOfDigits() {
         PeselValidator peselValidator = new PeselValidator("950210002121");
-        assertThrows(IllegalArgumentException.class, peselValidator::peselHave11Digitals);
+        assertThrows(IllegalArgumentException.class, peselValidator::isPeselHave11Digitals);
     }
 
     @Test
@@ -33,12 +33,12 @@ public class PeselValidatorTest {
     @Test
     void shouldBelongToMan() {
         PeselValidator peselValidator = new PeselValidator("85092334251");
-        assertTrue(peselValidator.peselBelongsToMan());
+        assertTrue(peselValidator.isPeselOwnerMale());
     }
 
     @Test
     void shouldBelongToWomen() {
         PeselValidator peselValidator = new PeselValidator("99091788928");
-        assertFalse(peselValidator.peselBelongsToMan());
+        assertFalse(peselValidator.isPeselOwnerMale());
     }
 }

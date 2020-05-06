@@ -4,6 +4,7 @@ public class PeselValidator {
 
     private byte[] PESEL = new byte[11];
     private final String peselNumber;
+    private static int NUMBER_OF_DIGITS_CORRECT_PESEL = 11;
 
     public PeselValidator(String peselNumber) throws IllegalArgumentException {
 
@@ -12,7 +13,7 @@ public class PeselValidator {
 
     public boolean peselHaveValidSumControl() {
 
-        for (int i = 0; i < 11; i++) {
+        for (int i = 0; i < NUMBER_OF_DIGITS_CORRECT_PESEL; i++) {
             PESEL[i] = Byte.parseByte(peselNumber.substring(i, i + 1));
         }
 
@@ -38,15 +39,15 @@ public class PeselValidator {
 
     }
 
-    public boolean peselHave11Digitals() {
+    public boolean isPeselHave11Digitals() {
 
-        if (peselNumber.length() != 11) {
+        if (peselNumber.length() != NUMBER_OF_DIGITS_CORRECT_PESEL) {
             throw new IllegalArgumentException("The PESEL number should have 11 digits");
         }
         return true;
     }
 
-    public boolean peselBelongsToMan() {
+    public boolean isPeselOwnerMale() {
 
         PESEL[9] = Byte.parseByte(peselNumber.substring(9, 10));
 
