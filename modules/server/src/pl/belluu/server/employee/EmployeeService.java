@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class EmployeeService {
@@ -30,25 +29,33 @@ public class EmployeeService {
     }
 
     public ResponseEntity getEmployeeByLastName(String lastName) throws JsonProcessingException{
-        Optional<Employee> employee = employeeRepository.findByLastName(lastName);
+        Employee employee = employeeRepository.findByLastName(lastName);
                 return ResponseEntity.ok(employee);
     }
 
     public ResponseEntity getEmployeeByPESEL(String PESEL) throws JsonProcessingException{
-        Optional<Employee> employee = employeeRepository.findByLastName(PESEL);
+        List<Employee> employee = employeeRepository.findByPESEL(PESEL);
+        return ResponseEntity.ok(employee);
+    }
+
+    public ResponseEntity getEmployeeByUserName(String userName) throws JsonProcessingException{
+        Employee employee = employeeRepository.findByUserName(userName);
+        return ResponseEntity.ok(employee);
+    }
+
+    public ResponseEntity getEmployeeByEmail(String email) throws JsonProcessingException{
+        Employee employee = employeeRepository.findByEmail(email);
         return ResponseEntity.ok(employee);
     }
 
     @PostMapping("/employees")
     public ResponseEntity addEmployee(@RequestBody Employee employee) throws JsonProcessingException{
-        Optional<Employee> peselFromDatabase = employeeRepository.findByPESEL(employee.getPESEL());
+        List<Employee> peselFromDatabase = employeeRepository.findByPESEL(employee.getPESEL());
 
-        if (peselFromDatabase.isPresent()){
+        if (!peselFromDatabase.isEmpty()){
             return ResponseEntity.status(HttpStatus.UNPROCESSABLE_ENTITY).build();
         }
         Employee saveEmployee = employeeRepository.save(employee);
         return ResponseEntity.ok(saveEmployee);
-
     }
-
 }
