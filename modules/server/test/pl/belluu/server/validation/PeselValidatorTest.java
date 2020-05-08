@@ -9,7 +9,7 @@ public class PeselValidatorTest {
     @Test
     void shouldHave11Digits() {
         PeselValidator peselValidator = new PeselValidator("73071141895");
-        assertTrue(peselValidator.isPeselHave11Digitals());
+        assertTrue(peselValidator.PeselHave11Digitals());
     }
 
     @Test
@@ -21,7 +21,7 @@ public class PeselValidatorTest {
     @Test
     void shouldThrowBecauseOfInvalidNumberOfDigits() {
         PeselValidator peselValidator = new PeselValidator("950210002121");
-        assertThrows(IllegalArgumentException.class, peselValidator::isPeselHave11Digitals);
+        assertThrows(IllegalArgumentException.class, peselValidator::PeselHave11Digitals);
     }
 
     @Test
