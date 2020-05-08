@@ -39,7 +39,7 @@ public class PeselValidator {
 
     }
 
-    public boolean isPeselHave11Digitals() {
+    public boolean PeselHave11Digitals() {
 
         if (peselNumber.length() != NUMBER_OF_DIGITS_CORRECT_PESEL) {
             throw new IllegalArgumentException("The PESEL number should have 11 digits");
